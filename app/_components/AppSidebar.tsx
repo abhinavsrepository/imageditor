@@ -11,33 +11,34 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { Calendar, Home, Inbox, Megaphone, Search, Settings, Wallet2 } from "lucide-react"
 import Image from 'next/image'
 import { useParams, usePathname } from 'next/navigation'
+import { Button } from '@/components/ui/button'
 
 const items = [
     {
         title: "Home",
-        url: "/dashboard",
+        url: "/app",
         icon: Home,
     },
     {
-        title: "Inbox",
-        url: "#",
+        title: "Creative Tools",
+        url: "/creative-tools",
         icon: Inbox,
     },
     {
-        title: "Calendar",
+        title: "My Ads",
         url: "#",
-        icon: Calendar,
+        icon: Megaphone,
     },
     {
-        title: "Search",
+        title: "Upgrade",
         url: "#",
-        icon: Search,
+        icon: Wallet2,
     },
     {
-        title: "Settings",
+        title: "Profile",
         url: "#",
         icon: Settings,
     },
@@ -76,6 +77,7 @@ export function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
+                <Button>Sign In</Button>
                 <h2 className='p-2 text-gray-400 text-sm'>Copyright @Tubeguruji</h2>
             </SidebarFooter>
         </Sidebar>
