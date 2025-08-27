@@ -20,7 +20,7 @@ function DashboardProvider({
         if (!user?.user && user.user) return router.replace('/')
 
 
-        user?.user && checkUser()
+        // user?.user && checkUser()
 
     }, [user])
 
