@@ -15,6 +15,9 @@ import { Calendar, Home, Inbox, Megaphone, Search, Settings, Wallet2 } from "luc
 import Image from 'next/image'
 import { useParams, usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { useAuthContext } from '../provider'
+import ProfileAvatar from './ProfileAvatar'
 
 const items = [
     {
@@ -46,6 +49,7 @@ const items = [
 
 export function AppSidebar() {
     const path = usePathname();
+    const {user} =useAuthContext();
     return (
         <Sidebar>
             <SidebarHeader>
@@ -77,7 +81,13 @@ export function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
-                <Button>Sign In</Button>
+                {!user ?<Link href={'/login'} className='w-full'>
+                <Button className='w-full'>Sign In</Button>
+                </Link>
+                :<div className='flex justify-between items-center p-4 px-4 bg-zinc-800 rounded-2xl'  >
+                    <h2>Profile</h2>
+                <ProfileAvatar/>
+                </div>}
                 <h2 className='p-2 text-gray-400 text-sm'>Copyright @Tubeguruji</h2>
             </SidebarFooter>
         </Sidebar>
